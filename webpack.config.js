@@ -26,6 +26,7 @@ module.exports = (env, argv) => {
         '@root': path.resolve(__dirname),
       },
     },
+    devtool: 'source-map',
     module: {
       rules: [
         {

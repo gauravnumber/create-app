@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 /* eslint-disable no-console */
 /* eslint-disable no-alert */
 import React, { useState, useEffect } from 'react'
@@ -8,7 +9,7 @@ import PersonForm from './components/PersonForm'
 import Persons from './components/Persons'
 import PersonHolder from './components/PersonHolder'
 import Notification from './components/Notification'
-import './index.css'
+// import './index.css'
 
 const App = () => {
   const [persons, setPersons] = useState(null)
@@ -51,7 +52,7 @@ const App = () => {
           .then()
 
         const t = persons.filter((p) => p.id !== person.id).concat(newObject)
-        // console.log("t", t)
+        // console.log('t', t)
 
         setPersons(t)
         const temp = (
@@ -174,7 +175,8 @@ const App = () => {
       .then((persons) => {
         setPersons(persons)
 
-        const temp = (
+        let temp
+        temp = (
           <PersonHolder
             persons={persons}
             setPerson={setPerson}
@@ -183,6 +185,9 @@ const App = () => {
             setNotificationType={setNotificationType}
           />
         )
+
+        console.log(temp)
+
         setPerson(temp)
       })
   }, [])
