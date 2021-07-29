@@ -186,7 +186,7 @@ const App = () => {
           />
         )
 
-        console.log(temp)
+        console.log('temp personService.getAll()', temp)
 
         setPerson(temp)
       })
