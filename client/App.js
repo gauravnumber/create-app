@@ -148,8 +148,8 @@ const App = () => {
   }
 
   const handleFilterChange = (e) => {
-    console.log('persons', persons)
-    console.log('e.target.value', e.target.value)
+    // console.log('persons', persons)
+    // console.log('e.target.value', e.target.value)
 
     e.persist()
 
