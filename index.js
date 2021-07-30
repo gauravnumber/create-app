@@ -4,10 +4,13 @@ const chokidar = require('chokidar')
 const express = require('express')
 const path = require('path')
 require('express-async-errors')
+// const cors = require('cors')
 
 const { PORT, inProduction } = require('@util/common')
 
 const app = express()
+
+// app.use(cors())
 
 // Require is here so we can delete it from cache when files change (*)
 app.use('/api', (req, res, next) => require('@root/server')(req, res, next)) // eslint-disable-line
@@ -59,5 +62,6 @@ if (!inProduction) {
 }
 
 app.listen(PORT, () => {
+  // eslint-disable-next-line no-console
   console.log(`Started on port ${PORT}`)
 })

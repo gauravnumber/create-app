@@ -26,6 +26,12 @@ module.exports = (env, argv) => {
         '@root': path.resolve(__dirname),
       },
     },
+    devtool: 'source-map',
+    // devServer: {
+    //   proxy: {
+    //     '/api': 'http://localhost:3001',
+    //   },
+    // },
     module: {
       rules: [
         {
