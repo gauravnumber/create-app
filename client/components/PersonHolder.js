@@ -12,48 +12,48 @@ const PersonHolder = ({
 
   console.log('persons', persons)
 
-  return (
-    <div>
-      PersonHolder
-    </div>
-  )
-
   // return (
-  //   persons.map((person) => (
-  //     <p
-  //       key={person.id}
-  //     >
-  //       {person.name}
-  //       {' '}
-  //       {person.number}
-  //       {' '}
-  //       <button
-  //         key={person.id}
-  //         onClick={() => {
-  //           if (window.confirm(`Delete ${person.name} ?`)) {
-  //             personService
-  //               .deletePerson(person.id)
-  //               .catch((error) => {
-  //                 console.log('error', error)
-
-  //                 setErrorMessage(`Information of ${person.name} has already been removed from server`)
-
-  //                 console.log(typeof setErrorMessage)
-  //                 setNotificationType('error')
-  //               })
-
-  //             const t = persons.filter((p) => p.id !== person.id)
-  //             setPersons(t)
-  //             const temp = <PersonHolder persons={t} setPerson={setPerson} setPersons={setPersons} />
-  //             setPerson(temp)
-  //           }
-  //         }}
-  //       >
-  //         delete
-  //       </button>
-  //     </p>
-  //   ))
+  //   <div>
+  //     PersonHolder
+  //   </div>
   // )
+
+  return (
+    persons.map((person) => (
+      <p
+        key={person.id}
+      >
+        {person.name}
+        {' '}
+        {person.number}
+        {' '}
+        <button
+          key={person.id}
+          onClick={() => {
+            if (window.confirm(`Delete ${person.name} ?`)) {
+              personService
+                .deletePerson(person.id)
+                .catch((error) => {
+                  console.log('error', error)
+
+                  setErrorMessage(`Information of ${person.name} has already been removed from server`)
+
+                  console.log(typeof setErrorMessage)
+                  setNotificationType('error')
+                })
+
+              const t = persons.filter((p) => p.id !== person.id)
+              setPersons(t)
+              const temp = <PersonHolder persons={t} setPerson={setPerson} setPersons={setPersons} />
+              setPerson(temp)
+            }
+          }}
+        >
+          delete
+        </button>
+      </p>
+    ))
+  )
 }
 
 export default PersonHolder

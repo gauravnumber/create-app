@@ -27,6 +27,11 @@ module.exports = (env, argv) => {
       },
     },
     devtool: 'source-map',
+    // devServer: {
+    //   proxy: {
+    //     '/api': 'http://localhost:3001',
+    //   },
+    // },
     module: {
       rules: [
         {
