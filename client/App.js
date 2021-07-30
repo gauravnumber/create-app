@@ -148,6 +148,11 @@ const App = () => {
   }
 
   const handleFilterChange = (e) => {
+    console.log('persons', persons)
+    console.log('e.target.value', e.target.value)
+
+    e.persist()
+
     setPerson(() => persons.filter(
       (person) => (
         person.name.toUpperCase().indexOf(e.target.value.toUpperCase()) > -1),
