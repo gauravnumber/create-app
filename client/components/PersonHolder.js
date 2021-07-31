@@ -10,7 +10,7 @@ const PersonHolder = ({
 }) => {
   if (!persons) return null
 
-  console.log('persons', persons)
+  // console.log('persons', persons)
 
   // return (
   //   <div>
