@@ -5,6 +5,7 @@
 // const Phonebook = require('./models/person')
 
 // const mongoose = require('mongoose')
+const morgan = require('morgan')
 const express = require('express')
 const routes = require('@util/routes')
 const errorMiddleware = require('@middleware/errorMiddleware')
@@ -12,23 +13,22 @@ const errorMiddleware = require('@middleware/errorMiddleware')
 const app = express()
 app.use(routes)
 
-// const morgan = require('morgan')
 // const cors = require('cors')
 
 // const { PORT } = process.env
 
 // app.use(cors())
 
-// morgan.token('type', (request) => {
-//   const body = JSON.stringify(request.body)
-//   return body
-// })
+morgan.token('type', (request) => {
+  const body = JSON.stringify(request.body)
+  return body
+})
 
 // app.use(express.static('build'))
 app.use(express.json())
 app.use(errorMiddleware)
 
-// app.use(morgan(':method :url :status :res[content-length] - :response-time ms :type'))
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms :type'))
 
 // app.get('/', (request, response) => {
 //   response.end('Homepage')

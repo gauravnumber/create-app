@@ -2,7 +2,15 @@
 /* eslint-disable consistent-return */
 const Router = require('express')
 // const messages = require('@controllers/messagesController')
+// const morgan = require('morgan')
 const Phonebook = require('../models/person')
+
+// morgan.token('type', (request) => {
+//   const body = JSON.stringify(request.body)
+//   return body
+// })
+
+// app.use(morgan(':method :url :status :res[content-length] - :response-time ms :type'))
 
 const router = Router()
 
