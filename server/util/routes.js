@@ -10,11 +10,11 @@ const router = Router()
 // router.post('/messages', messages.create)
 // router.delete('/messages/:id', messages.destroy)
 
-router.get('/', (request, response) => {
-  response.end('Homepage')
-})
+// router.get('/', (request, response) => {
+//   response.end('Homepage')
+// })
 
-router.get('/api/persons', (request, response) => {
+router.get('/persons', (request, response) => {
   Phonebook
     .find({})
     .then((persons) => {
@@ -22,6 +22,7 @@ router.get('/api/persons', (request, response) => {
     })
 })
 
+// localhost:8000/api/info
 router.get('/info', (request, response) => {
   Phonebook.find({}).then((result) => {
     const personNumber = result.length
@@ -31,7 +32,7 @@ router.get('/info', (request, response) => {
   // console.log('personNumber', personNumber);
 })
 
-router.get('/api/persons/:id', (request, response, next) => {
+router.get('/persons/:id', (request, response, next) => {
   Phonebook
     .findById(request.params.id)
     .then((result) => {
@@ -40,7 +41,7 @@ router.get('/api/persons/:id', (request, response, next) => {
     .catch((error) => next(error))
 })
 
-router.delete('/api/persons/:id', (request, response, next) => {
+router.delete('/persons/:id', (request, response, next) => {
   Phonebook
     .findByIdAndDelete(request.params.id)
     .then(() => {
@@ -53,7 +54,7 @@ router.delete('/api/persons/:id', (request, response, next) => {
   // })
 })
 
-router.post('/api/persons', (request, response, next) => {
+router.post('/persons', (request, response, next) => {
   const { body } = request
 
   if (!body.name || !body.number) {
@@ -86,7 +87,7 @@ router.post('/api/persons', (request, response, next) => {
   // })
 })
 
-router.put('/api/persons/:id', (request, response, next) => {
+router.put('/persons/:id', (request, response, next) => {
   const { body } = request
   const person = {
     // ...body,
