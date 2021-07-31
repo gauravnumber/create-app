@@ -64,6 +64,8 @@ const App = () => {
             setNotificationType={setNotificationType}
           />
         )
+
+        console.log('temp', temp)
         setPerson(temp)
 
         setNewName('')
@@ -191,7 +193,7 @@ const App = () => {
           />
         )
 
-        // console.log('temp personService.getAll()', temp)
+        console.log('temp personService.getAll()', temp)
 
         setPerson(temp)
       })
