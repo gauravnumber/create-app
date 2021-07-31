@@ -65,6 +65,8 @@ router.delete('/persons/:id', (request, response, next) => {
 router.post('/persons', (request, response, next) => {
   const { body } = request
 
+  console.log('body', body)
+
   if (!body.name || !body.number) {
     return response.status(400).json({
       error: 'Name or number can\'t be empty',

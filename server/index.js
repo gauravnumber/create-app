@@ -11,6 +11,8 @@ const routes = require('@util/routes')
 const errorMiddleware = require('@middleware/errorMiddleware')
 
 const app = express()
+app.use(express.json())
+
 app.use(routes)
 
 // const cors = require('cors')
@@ -25,7 +27,7 @@ morgan.token('type', (request) => {
 })
 
 // app.use(express.static('build'))
-app.use(express.json())
+// app.use(express.json())
 app.use(errorMiddleware)
 
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :type'))
@@ -121,20 +123,20 @@ app.use(morgan(':method :url :status :res[content-length] - :response-time ms :t
 //     .catch((error) => next(error))
 // })
 
-const errorHandler = (error, request, response, next) => {
-  console.error(error.message)
+// const errorHandler = (error, request, response, next) => {
+//   console.error(error.message)
 
-  if (error.name === 'CastError') {
-    return response.status(400).send({ error: 'malformatted id' })
-  } if (error.name === 'ValidationError') {
-    return response.status(400).json({ error: error.message })
-  }
+//   if (error.name === 'CastError') {
+//     return response.status(400).send({ error: 'malformatted id' })
+//   } if (error.name === 'ValidationError') {
+//     return response.status(400).json({ error: error.message })
+//   }
 
-  next(error)
-}
+//   next(error)
+// }
 
-// this has to be the last loaded middleware.
-app.use(errorHandler)
+// // this has to be the last loaded middleware.
+// app.use(errorHandler)
 
 module.exports = app
 // app.listen(PORT, () => {
