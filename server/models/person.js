@@ -5,7 +5,8 @@ const mongoose = require('mongoose')
 const uniqueValidator = require('mongoose-unique-validator')
 require('dotenv').config()
 
-const url = process.env.MONGODB_URI
+const url = 'mongodb+srv://fullstack:passwordoffullstack@cluster0.23qc1.mongodb.net/phonebook-app?retryWrites=true'
+// const url = process.env.MONGODB_URI
 console.log('connecting to', url)
 
 mongoose.connect(url, {
