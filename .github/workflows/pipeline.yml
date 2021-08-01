@@ -1,0 +1,79 @@
+name: Deployment pipeline
+
+on:
+  push:
+    branches:
+      - master
+  # pull_request:
+  #   branches: [master]
+  #   types: [opened, synchronize]
+
+jobs:
+  simple_deployment_pipeline:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+
+      - name: npm install
+        run: npm install
+
+      - name: lint
+        run: npm run lint
+
+      # - name: build
+      #   run: npm run build
+
+      # - name: test
+      #   run: npm run test
+
+      # - name: e2e tests
+      #   uses: cypress-io/github-action@v2
+      #   with:
+      #     command: npm run test:e2e
+      #     start: npm run start-prod
+      #     wait-on: http://localhost:5000
+      
+      # # SCHEDULE HEALTH CHECK
+      # - name: Check the deployed service URL
+      #   uses: jtalk/url-health-check-action@v1.5
+      #   with:
+      #     # Check the following URLs one by one sequentially
+      #     url: https://gauravnumber-open-pokedex.herokuapp.com/version
+
+      # TELEGRAM NOTIFICATION
+      # - name: send custom message with args
+      #   uses: appleboy/telegram-action@master
+      #   with:
+      #     to: ${{ secrets.TELEGRAM_TO }}
+      #     token: ${{ secrets.TELEGRAM_TOKEN }}
+      #     args: The ${{ github.event_name }} event triggered first step.
+
+      # SLACK NOTIFICATION
+      # - uses: 8398a7/action-slack@v3
+      #   with:
+      #     status: ${{ job.status }}
+      #     fields: repo,message,commit,author,action,eventName,ref,workflow,job,took #     selectable (default: repo,message)
+      #   env:
+      #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
+      #   if: always() # Pick up events even if the job fails or is canceled.
+
+      # AUTO TAG
+      # - name: Bump version and push tag
+      #   uses: anothrNick/github-tag-action@eca2b69f9e2c24be7decccd0f15fdb1ea5906598
+      #   # uses: anothrNick/github-tag-action@1.33.0
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # - uses: akhileshns/heroku-deploy@v3.12.12
+      #   # if: ${{ github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true }}
+      #   if: ${{ github.event_name == 'push' }}
+      #   with:
+      #     heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+      #     heroku_app_name: "gauravnumber-open-pokedex"
+      #     heroku_email: "gauravnumber@gmail.com"
+      #     healthcheck: "https://gauravnumber-open-pokedex.herokuapp.com/health"
+      #     checkstring: "ok"
+      #     rollbackonhealthcheckfailed: true
