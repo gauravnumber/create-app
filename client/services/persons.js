@@ -1,6 +1,5 @@
 import axios from 'axios'
 
-// TODO fix backend url
 // const baseUrl = 'http://localhost:3001/api/persons'
 const baseUrl = '/api/persons'
 
