@@ -1,15 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable consistent-return */
 const Router = require('express')
-// const morgan = require('morgan')
 const Phonebook = require('../models/person')
-
-// morgan.token('type', (request) => {
-//   const body = JSON.stringify(request.body)
-//   return body
-// })
-
-// app.use(morgan(':method :url :status :res[content-length] - :response-time ms :type'))
 
 const router = Router()
 
@@ -37,6 +29,14 @@ router.get('/persons/:id', (request, response, next) => {
       response.json(result)
     })
     .catch((error) => next(error))
+})
+
+router.get('/health', (request, response) => {
+  response.send('ok')
+})
+
+router.get('/version', (request, response) => {
+  response.send('v1')
 })
 
 router.delete('/persons/:id', (request, response, next) => {
