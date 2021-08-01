@@ -4,9 +4,9 @@ on:
   push:
     branches:
       - master
-  # pull_request:
-  #   branches: [master]
-  #   types: [opened, synchronize]
+  pull_request:
+    branches: [master]
+    types: [opened, synchronize]
 
 jobs:
   simple_deployment_pipeline:
@@ -60,7 +60,7 @@ jobs:
       #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
       #   if: always() # Pick up events even if the job fails or is canceled.
 
-      AUTO TAG
+      # AUTO TAG
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@eca2b69f9e2c24be7decccd0f15fdb1ea5906598
         # uses: anothrNick/github-tag-action@1.33.0
