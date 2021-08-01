@@ -74,6 +74,6 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "gauravnumber-create-app"
           heroku_email: "gauravnumber@gmail.com"
-          # healthcheck: "https://gauravnumber-create-app.herokuapp.com/health"
-          # checkstring: "ok"
-          # rollbackonhealthcheckfailed: true
+          healthcheck: "https://gauravnumber-create-app.herokuapp.com/api/health"
+          checkstring: "ok"
+          rollbackonhealthcheckfailed: true
