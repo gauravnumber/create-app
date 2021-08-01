@@ -36,7 +36,7 @@ router.get('/health', (request, response) => {
 })
 
 router.get('/version', (request, response) => {
-  response.send('v1')
+  response.send('2')
 })
 
 router.delete('/persons/:id', (request, response, next) => {
