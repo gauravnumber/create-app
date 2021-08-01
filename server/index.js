@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 /* eslint-disable consistent-return */
-// require('dotenv').config()
+require('dotenv').config()
 // eslint-disable-next-line import/order
 // const Phonebook = require('./models/person')
 

@@ -9,7 +9,6 @@ import PersonForm from './components/PersonForm'
 import Persons from './components/Persons'
 import PersonHolder from './components/PersonHolder'
 import Notification from './components/Notification'
-// import './index.css'
 
 const App = () => {
   const [persons, setPersons] = useState(null)
@@ -114,30 +113,6 @@ const App = () => {
 
           // console.log(error.response.data);
         })
-
-      // setPersons(persons.concat(newObject))
-
-      // console.log("persons", persons);
-      // console.log('persons.concat(newObject)', persons.concat(newObject))
-
-      // let temp = <PersonHolder
-      //   persons={persons.concat(newObject)}
-      //   setPerson={setPerson}
-      //   setPersons={setPersons}
-      //   setErrorMessage={setErrorMessage}
-      //   setNotificationType={setNotificationType}
-      // />
-
-      // setErrorMessage(`Added ${newName}`)
-      // setNotificationType("added")
-      // setTimeout(() => {
-      //   setErrorMessage(null)
-
-      // }, 2000)
-
-      // setPerson(temp)
-      // setNewName("")
-      // setNewNumber("")
     }
   }
 
@@ -193,7 +168,7 @@ const App = () => {
           />
         )
 
-        console.log('temp personService.getAll()', temp)
+        // console.log('temp personService.getAll()', temp)
 
         setPerson(temp)
       })
